@@ -29,16 +29,17 @@ public class Read {
        String[] split;
         for (int i=0;i<lines.size();i++){
             split=lines.get(i).split("\t");
+            System.out.println(Arrays.toString(split));
             int id=-1;
             boolean next=false;
             try{
                id=Integer.parseInt( split[0]);
             }catch(InputMismatchException e){
-                System.out.println(e+"\n\nThat's a String, not a number");
+                //System.out.println(e+"\n\nThat's a String, not a number");
                 next=true;
             }
             catch(NumberFormatException n){
-                System.out.println(n+"\n\nThat's a String, not a number");
+               // System.out.println(n+"\n\nThat's a String, not a number");
                 next=true;
             }
             if(!next){
@@ -60,7 +61,7 @@ public class Read {
                                 pts+=d;
                             }
                             catch(NumberFormatException n){
-                                System.out.println(n+"\n that was not a double");
+                               // System.out.println(n+"\n that was not a double");
                             }
                         }
                     }
@@ -70,7 +71,7 @@ public class Read {
                             syn+=f;
                         }
                         catch(NumberFormatException n){
-                            System.out.println(n);
+                         //   System.out.println(n);
                         }
                     }
                 }

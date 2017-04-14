@@ -14,7 +14,7 @@ public class Main {
         Read data=new Read("rawDataU6.txt");
         data.construct(students);
         Scanner sc=new Scanner(System.in);
-        System.out.print("place your file of ids and names in the root folder\nThen input your file name here: ");
+        System.out.print("Place your file of ids and names in the root folder.\nThen input your file name here: ");
         String s="";
         boolean f=true;
         while (f){
