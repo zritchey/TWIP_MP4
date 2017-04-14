@@ -14,7 +14,7 @@ public class Read {
         imports(name);
     }
 
-    public   void imports(String s){
+    private   void imports(String s){
         try {
             Scanner sc = new Scanner(new File(s));
             while (sc.hasNextLine())
@@ -26,7 +26,7 @@ public class Read {
         }
     }
     public void construct(ArrayList <Student>a){
-       String[] split=new String [0];
+       String[] split;
         for (int i=0;i<lines.size();i++){
             split=lines.get(i).split("\t");
             int id=-1;
@@ -37,20 +37,47 @@ public class Read {
                 System.out.println(e+"\n\nThat's a String, not a number");
                 next=true;
             }
+            catch(NumberFormatException n){
+                System.out.println(n+"\n\nThat's a String, not a number");
+                next=true;
+            }
             if(!next){
                 int indx=Student.search(a,id);
                 if(indx==-1){
                     a.add(new Student(id));
                     indx=a.size()-1;
                 }
+                int pts=0;
+                int syn=0;
                 for (int j=1;j<split.length;j++){
-                    
+                    if (split[j].contains("\"")){
+                        String[] s=split[j].split("\\+ ");
+
+                        for (int r=1;r<s.length;r++) {
+                            Scanner scan=new Scanner(s[r]);
+                            try {
+                                double d =Double.parseDouble(scan.next());
+                                pts+=d;
+                            }
+                            catch(NumberFormatException n){
+                                System.out.println(n+"\n that was not a double");
+                            }
+                        }
+                    }
+                    else{
+                        try{
+                            int f=Integer.parseInt(split[j].trim());
+                            syn+=f;
+                        }
+                        catch(NumberFormatException n){
+                            System.out.println(n);
+                        }
+                    }
                 }
+                a.get(indx).update(pts,syn);
 
             }
         }
-
-
-
     }
+    ///
 }
