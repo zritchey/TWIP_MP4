@@ -12,8 +12,10 @@ public class Student {
     private double points;
     private int scores;
     public final int id;
+    private ArrayList<Double> grades;
     public Student(int n){
         id=n;
+        grades=new ArrayList<>();
     }
     public static int search(ArrayList<Student>a,int student){
         int indx=-1;
@@ -29,6 +31,7 @@ public class Student {
         errors+=syn;
         scores++;
     }
+    grade
     private int calculate(){
         return (int)((points-(0.25*errors))/scores);
     }
@@ -44,7 +47,7 @@ public class Student {
                     if (i==-1)
                         System.out.println("Student"+name[1]+"does not exist in the files");
                     else {
-                        System.out.println(name[1]+" earned "+a.get(i).calculate()+"points");
+                        System.out.println(name[1]+" earned "+a.get(i).calculate()+" points");
                     }
                 }
                 catch(NumberFormatException n) {
