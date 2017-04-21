@@ -53,7 +53,7 @@ public class Read {
                 for (int j=1;j<split.length;j++){
 
                     if (split[j].contains("\"")){
-                        String[] s=split[j].split("\\+ ");
+                        String[] s=split[j].split("\\+ ");                      ///reformat this& move the plus delimiter out of the for loop
 
                         for (int r=1;r<s.length;r++) {
                             Scanner scan=new Scanner(s[r]);
@@ -76,7 +76,7 @@ public class Read {
                         }
                     }
                 }
-                a.get(indx).update(pts,syn);
+                a.get(indx).grade(pts,syn);
 
             }
         }

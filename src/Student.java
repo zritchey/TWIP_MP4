@@ -9,8 +9,8 @@ import java.util.Scanner;
 public class Student {
 
     private int errors=0;
-    private double points;
-    private int scores;
+
+
     public final int id;
     private ArrayList<Double> grades;
     public Student(int n){
@@ -26,14 +26,22 @@ public class Student {
             }
         return indx;
     }
-    public void update(double pts,int syn){
-        points+=pts;
-        errors+=syn;
-        scores++;
+    public void grade (double pts,int syn){
+       grades.add((pts-(0.25*syn)));
+       errors+=syn;
+
+
     }
-    grade
-    private int calculate(){
-        return (int)((points-(0.25*errors))/scores);
+    public double syntax(){
+        return errors/grades.size();
+    }
+
+    private double calculate(){
+        double total=0;
+        for (double d:grades){
+            total+=d;
+        }
+        return total/grades.size();
     }
     public static void match(ArrayList<Student> a, String file){
         try {
@@ -48,6 +56,7 @@ public class Student {
                         System.out.println("Student"+name[1]+"does not exist in the files");
                     else {
                         System.out.println(name[1]+" earned "+a.get(i).calculate()+" points");
+                        System.out.println("Average Syntax Errors: "+(a.get(i).syntax()));
                     }
                 }
                 catch(NumberFormatException n) {
