@@ -47,7 +47,7 @@ public class Student {
         try {
             Scanner sc = new Scanner(new File(file));
             while (sc.hasNextLine()) {
-                String[] name = sc.nextLine().split(",");
+                String[] name = sc.nextLine().split("\\s+");
 
                 try {
                    int i=Integer.parseInt(name[0]);
@@ -56,7 +56,7 @@ public class Student {
                         System.out.println("Student"+name[1]+"does not exist in the files");
                     else {
                         System.out.println(name[1]+" earned "+a.get(i).calculate()+" points");
-                        System.out.println("Average Syntax Errors: "+(a.get(i).syntax()));
+                        System.out.println("Average Syntax Errors: "+(a.get(i).syntax())+"\n");
                     }
                 }
                 catch(NumberFormatException n) {

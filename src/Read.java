@@ -29,7 +29,8 @@ public class Read {
        String[] split;
         for (int i=0;i<lines.size();i++){
             split=lines.get(i).split("\t");
-            //System.out.println(Arrays.toString(split));
+            System.out.println(split.length);
+            /*
             int id=-1;
             boolean next=false;
             try{
@@ -52,7 +53,7 @@ public class Read {
                 int syn=0;
                 for (int j=1;j<split.length;j++){
 
-                    if (split[j].contains("\"")){
+                    if (split[j].contains("\"")){  //cannot be delimited using """"""" characters.
                         String[] s=split[j].split("\\+ ");                      ///reformat this& move the plus delimiter out of the for loop
 
                         for (int r=1;r<s.length;r++) {
@@ -79,6 +80,7 @@ public class Read {
                 a.get(indx).grade(pts,syn);
 
             }
+            */
         }
     }
     ///
