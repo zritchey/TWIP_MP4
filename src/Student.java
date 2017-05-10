@@ -33,7 +33,7 @@ public class Student {
         ptnum++;
     }
     public double syntax(){
-        return errors/ptnum;
+        return errors/(double)ptnum;
     }
 
     private double calculate(){return ((points-(0.25*errors))/ptnum);}
@@ -43,7 +43,7 @@ public class Student {
             Scanner sc = new Scanner(new File(file));
             while (sc.hasNextLine()) {
                 String[] name = sc.nextLine().split("\\s+");
-                
+
                 try {
                    int i=Integer.parseInt(name[0]);
                     i=search(a,i);
@@ -55,12 +55,12 @@ public class Student {
                     }
                 }
                 catch(NumberFormatException n) {
-                    System.out.println(n + "could not parse Int"+name[0]);
+                    System.out.println(n + "\n could not parse Int"+name[0]);
                 }
             }
         }
         catch(IOException i){
-            System.out.println(i+"file did not match properly");
+            System.out.println(i+"\n\n file did not match properly");
         }
     }
 }

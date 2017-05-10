@@ -30,7 +30,6 @@ public class Read {
             try{
                id=Integer.parseInt( split[0]);
             }catch(Exception e){
-                System.out.println(e+"\n\nThat's a String, not a number");
                 next=true;
             }
             if(!next){
@@ -52,7 +51,7 @@ public class Read {
                                 pts+=d;
                             }
                             catch(NumberFormatException n){
-                                System.out.println(n+"\n that was not a double");
+
                             }
                         }
                     }
@@ -62,7 +61,7 @@ public class Read {
                             syn+=f;
                         }
                         catch(NumberFormatException n){
-                           System.out.println(n);
+
                         }
                     }
                 }
