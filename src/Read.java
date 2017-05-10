@@ -11,36 +11,26 @@ import java.util.Scanner;
 public class Read {
     private  ArrayList <String> lines=new ArrayList<>();
     public Read(String name){
-        imports(name);
-    }
-
-    private   void imports(String s){
         try {
-            Scanner sc = new Scanner(new File(s));
+            Scanner sc = new Scanner(new File(name));
             while (sc.hasNextLine())
                 lines.add(sc.nextLine());
         }
         catch(IOException i){
-            System.out.println(i+ "\n the file "+s+" had an error");
+            System.out.println(i+ "\n the file "+name+" had an error");
             System.out.println(Arrays.toString(lines.toArray()));
         }
     }
     public void construct(ArrayList <Student>a){
        String[] split;
+        int id=-1;
         for (int i=0;i<lines.size();i++){
             split=lines.get(i).split("\t");
-            System.out.println(split.length);
-            /*
-            int id=-1;
             boolean next=false;
             try{
                id=Integer.parseInt( split[0]);
-            }catch(InputMismatchException e){
-                //System.out.println(e+"\n\nThat's a String, not a number");
-                next=true;
-            }
-            catch(NumberFormatException n){
-                //System.out.println(n+"\n\nThat's a String, not a number");
+            }catch(Exception e){
+                System.out.println(e+"\n\nThat's a String, not a number");
                 next=true;
             }
             if(!next){
@@ -49,13 +39,12 @@ public class Read {
                     a.add(new Student(id));
                     indx=a.size()-1;
                 }
-                int pts=0;
+                double pts=0;
                 int syn=0;
                 for (int j=1;j<split.length;j++){
 
-                    if (split[j].contains("\"")){  //cannot be delimited using """"""" characters.
-                        String[] s=split[j].split("\\+ ");                      ///reformat this& move the plus delimiter out of the for loop
-
+                    if (split[j].contains("+")){
+                        String[] s=split[j].split("\\+ ");
                         for (int r=1;r<s.length;r++) {
                             Scanner scan=new Scanner(s[r]);
                             try {
@@ -63,7 +52,7 @@ public class Read {
                                 pts+=d;
                             }
                             catch(NumberFormatException n){
-                                //System.out.println(n+"\n that was not a double");
+                                System.out.println(n+"\n that was not a double");
                             }
                         }
                     }
@@ -73,15 +62,12 @@ public class Read {
                             syn+=f;
                         }
                         catch(NumberFormatException n){
-                           //System.out.println(n);
+                           System.out.println(n);
                         }
                     }
                 }
                 a.get(indx).grade(pts,syn);
-
             }
-            */
         }
     }
-    ///
 }
