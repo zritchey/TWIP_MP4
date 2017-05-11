@@ -45,17 +45,17 @@ public class Student {
                 String[] name = sc.nextLine().split("\\s+");
 
                 try {
-                   int i=Integer.parseInt(name[0]);
+                   int i=Integer.parseInt(name[1]);
                     i=search(a,i);
                     if (i==-1)
-                        System.out.println("Student "+name[1]+" does not exist in the files");
+                        System.out.println("Student "+name[0]+" does not exist in the files");
                     else {
-                        System.out.println(name[1]+" earned "+a.get(i).calculate()+" points");
+                        System.out.println(name[0]+" earned "+a.get(i).calculate()+" points");
                         System.out.println("Average Syntax Errors: "+(a.get(i).syntax())+"\n");
                     }
                 }
                 catch(NumberFormatException n) {
-                    System.out.println(n + "\n could not parse Int"+name[0]);
+                    System.out.println(n + "\n could not parse Int"+name[1]);
                 }
             }
         }
