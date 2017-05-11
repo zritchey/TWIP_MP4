@@ -2,12 +2,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 /**
  * Created by zr162 on 4/12/17.
  */
 public class Student {
-
     public final int id;
     private double  points;
     private int ptnum;
@@ -35,9 +33,7 @@ public class Student {
     public double syntax(){
         return errors/(double)ptnum;
     }
-
     private double calculate(){return ((points-(0.25*errors))/ptnum);}
-
     public static void match(ArrayList<Student> a, String file){
         try {
             Scanner sc = new Scanner(new File(file));
